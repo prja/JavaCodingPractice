@@ -16,8 +16,8 @@ public class DuplicateElement {
 	public static Set<Integer> findDuplicate() {
 		Integer[] array = new Integer[]{5,6,7,8,9,5,6,7};
 		
-		Set<Integer> allItems = new HashSet<>();
-		return Arrays.stream(array).filter(n -> !allItems.add(n)).collect(Collectors.toSet());
+		Set<Integer> duplicateItems = new HashSet<>();
+		return Arrays.stream(array).filter(n -> !duplicateItems.add(n)).collect(Collectors.toSet());
 		 
 	}
 
