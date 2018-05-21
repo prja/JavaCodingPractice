@@ -7,12 +7,59 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class LambdaComparatorTest {
 	String x,y;
 
 	public static void main(String[] args) {
+		
+		
+		
+		Thread t;
+		 t= new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("In thread main");
+			}
+		});
+		
+		
+		t= new Thread(()->System.out.println("In thread main using lambda"));
+		
+		t.start();
+		
+		
+		List<Integer> num= Arrays.asList(1,3,5,6,7,8,9);
+		
+		//External Iterator
+		for (int i = 0; i < num.size(); i++) {
+			System.out.println(num.get(i));
+		}
+		
+		
+		for(int x: num)
+			System.out.println(x);
+		
+		
+		
+		//internal itrator
+		
+		num.forEach(new Consumer<Integer>() {
+			@Override
+			public void accept(Integer x) {
+				System.out.println(x);
+			}
+		});
+		
+		num.forEach((Integer x) -> System.out.println(x));
+		
+		num.forEach( x -> System.out.println(x));
+		
+		num.forEach(System.out::println);
+		
+		
 		
 		// without lambda
 		List<String> list1=  Arrays.asList("ab" ,"opqrs","uvxyz123", "cde", "fghi", "jklmn");

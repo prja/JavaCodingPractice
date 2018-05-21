@@ -14,4 +14,20 @@ System.out.println(factorialStreams(5));
 	    return IntStream.rangeClosed( 1, n )
 	                     .reduce(1, ( int a, int b ) -> a * b);
 	}
+	
+	
+	private static void printFactorial(int val)
+	{
+		int fact= 1;
+		if(val==0 || val==1)
+			System.out.println(fact);
+		
+		for (int i = 1; i <=val; i++) {
+			fact*=i;
+			
+			
+		}
+		System.out.println(fact);
+		
+	}
 }
